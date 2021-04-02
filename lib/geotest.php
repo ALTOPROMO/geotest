@@ -51,8 +51,8 @@ class GeoTest
         if (count($city)) {
             $cityName = $this->getCityName($city['UF_CITY_ID']);
             if ($cityName) {
-                $result = ['success' => true, 'city' => $cityName]
-			}
+                $result = ['success' => true, 'city' => $cityName];
+            }
         }
 
         return json_encode($result, true);

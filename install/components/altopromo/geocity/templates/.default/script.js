@@ -16,22 +16,21 @@ $(
             }
         );
 
-        $('#realcity_agree').click()
-        {
-            $('#geocity_popup_window').hide();
+        $('#realcity_agree').click(
+            function () {
+                $('#geocity_popup_window').hide();
 
-            let cityID = $('#realcity').val();
-            let cityName = $('#realcity_' + cityID).html();
+                let cityName = $('#realcity').val();
 
-            $.ajax({
-                url: '/local/altopromo/geocity/ajax.php',
-                method: 'post',
-                data: {'action': 'selectCity', 'id': cityID},
-                success: function () {
-                    geotext.innerHTML = cityName;
-                    geotext.dataset.id = cityID;
-                }
-            });
-        }
+                $.ajax({
+                    url: '/local/components/altopromo/geocity/ajax.php',
+                    method: 'post',
+                    data: {'action': 'selectCity', 'cityName': cityName},
+                    success: function () {
+                        geotext.innerHTML = cityName;
+                    }
+                });
+            }
+        )
     }
 )

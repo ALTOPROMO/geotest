@@ -6,15 +6,15 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_before.
 
 $geotest = new \Altopromo\GeoTest();
 
-$action = $_POST['action'];
+$action = $_REQUEST['action'];
 
 switch ($action) {
     case('selectCity'): {
-        $cityID = $_POST['id'];
+        $cityName = $_REQUEST['cityName'];
         $ip = $_SERVER['REMOTE_ADDR'];
         $geotest = new \Altopromo\GeoTest();
 
-        $geotest->setCity($ip, $cityID);
+        $geotest->setCity($ip, $cityName);
     }
         break;
 }
